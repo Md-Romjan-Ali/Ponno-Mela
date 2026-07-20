@@ -52,7 +52,7 @@ src/
 ### Clone the repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/Md-Romjan-Ali/Ponno-Mela/tree/main
 ```
 
 ### Install dependencies
