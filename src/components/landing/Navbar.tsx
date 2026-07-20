@@ -5,6 +5,7 @@ import { HiMenu, HiOutlineShoppingBag, HiOutlineX } from "react-icons/hi";
 import { Button } from "@heroui/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useCart } from "@/context/CartContext";
 
 const navLinks = [
     { label: "Home", href: "/" },
@@ -17,16 +18,29 @@ const navLinks = [
 export function Navbar() {
     const [mobileOpen, setMobileOpen] = useState(false);
     const pathname = usePathname();
+    const { cartCount } = useCart();
 
     const isLinkActive = (href: string) => {
-        if (href === "/") {
-            return pathname === "/";
-        }
-        if (href === "/products") {
-            return pathname.startsWith("/products");
-        }
+        if (href === "/") return pathname === "/";
+        if (href === "/products") return pathname.startsWith("/products");
+        if (href === "/cart") return pathname === "/cart";
         return false;
     };
+
+    const CartButton = (
+        <Link
+            href="/cart"
+            className="relative inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-3.5 py-2 text-slate-700 transition hover:border-amber-300 hover:text-amber-600"
+            aria-label={`Shopping cart, ${cartCount} items`}
+        >
+            <HiOutlineShoppingBag className="h-5 w-5" />
+            {cartCount > 0 && (
+                <span className="absolute -right-2 -top-1 inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-rose-500 px-1.5 text-[0.7rem] font-bold text-white animate-in fade-in zoom-in">
+                    {cartCount > 99 ? "99+" : cartCount}
+                </span>
+            )}
+        </Link>
+    );
 
     return (
         <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur-xl">
@@ -38,6 +52,7 @@ export function Navbar() {
                     Ponno-Mel
                 </Link>
 
+                {/* Desktop nav */}
                 <nav className="hidden items-center gap-8 md:flex">
                     {navLinks.map((link) => {
                         const active = isLinkActive(link.href);
@@ -45,10 +60,11 @@ export function Navbar() {
                             <Link
                                 key={link.label}
                                 href={link.href}
-                                className={`text-sm transition ${active
+                                className={`text-sm transition ${
+                                    active
                                         ? "text-slate-900 font-semibold"
                                         : "text-slate-600 hover:text-slate-900"
-                                    }`}
+                                }`}
                             >
                                 {link.label}
                             </Link>
@@ -56,18 +72,15 @@ export function Navbar() {
                     })}
                 </nav>
 
+                {/* Desktop right side */}
                 <div className="hidden items-center gap-3 md:flex">
-                    <button className="relative inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-3.5 py-2 text-slate-700 transition hover:border-slate-300 hover:text-slate-900">
-                        <HiOutlineShoppingBag className="h-5 w-5" />
-                        <span className="absolute -right-2 -top-1 inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-rose-500 px-1.5 text-[0.7rem] font-semibold text-white">
-                            3
-                        </span>
-                    </button>
+                    {CartButton}
                     <Button variant="primary" size="md" className="rounded-full px-5 py-2.5">
                         Login
                     </Button>
                 </div>
 
+                {/* Mobile hamburger */}
                 <button
                     type="button"
                     aria-label="Open mobile menu"
@@ -78,7 +91,8 @@ export function Navbar() {
                 </button>
             </div>
 
-            {mobileOpen ? (
+            {/* Mobile menu */}
+            {mobileOpen && (
                 <div className="border-t border-slate-200 bg-white/95 px-6 py-4 shadow-sm md:hidden">
                     <div className="space-y-4">
                         {navLinks.map((link) => {
@@ -87,32 +101,28 @@ export function Navbar() {
                                 <Link
                                     key={link.label}
                                     href={link.href}
-                                    onClick={() => {
-                                        setMobileOpen(false);
-                                    }}
-                                    className={`block rounded-3xl px-4 py-3 text-sm transition ${active
+                                    onClick={() => setMobileOpen(false)}
+                                    className={`block rounded-3xl px-4 py-3 text-sm transition ${
+                                        active
                                             ? "bg-slate-100 text-slate-900 font-semibold"
                                             : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
-                                        }`}
+                                    }`}
                                 >
                                     {link.label}
                                 </Link>
                             );
                         })}
+
                         <div className="flex items-center gap-3 border-t border-slate-200 pt-4">
-                            <button className="relative inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-3.5 py-2 text-slate-700 transition hover:border-slate-300 hover:text-slate-900">
-                                <HiOutlineShoppingBag className="h-5 w-5" />
-                                <span className="absolute -right-2 -top-1 inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-rose-500 px-1.5 text-[0.7rem] font-semibold text-white">
-                                    3
-                                </span>
-                            </button>
+                            {CartButton}
                             <Button variant="primary" size="md" className="rounded-full px-5 py-2.5 w-full">
                                 Login
                             </Button>
                         </div>
                     </div>
                 </div>
-            ) : null}
+            )}
         </header>
     );
 }
+

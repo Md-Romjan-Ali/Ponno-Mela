@@ -206,16 +206,13 @@ export default async function ProductsPage({ searchParams }: PageProps) {
                                         </div>
 
                                         {/* Details button */}
-                                        <Button
-                                            as={Link}
+                                        <Link
                                             href={`/products/${product.id}`}
-                                            variant="ghost"
-                                            size="md"
-                                            className="mt-6 w-full justify-between rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-amber-400 hover:bg-amber-50"
+                                            className="mt-6 inline-flex w-full items-center justify-between rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-amber-400 hover:bg-amber-50"
                                         >
                                             View Details
                                             <HiChevronRight className="h-5 w-5" />
-                                        </Button>
+                                        </Link>
                                     </div>
                                 </Card>
                             ))}
@@ -294,15 +291,12 @@ export default async function ProductsPage({ searchParams }: PageProps) {
                         <p className="mt-2 text-slate-600 max-w-md mx-auto">
                             We couldn&apos;t find any items matching your search criteria. Try modifying your filters or clear your search query.
                         </p>
-                        <Button
-                            as={Link}
+                        <Link
                             href="/products"
-                            variant="primary"
-                            size="md"
-                            className="mt-6 rounded-full px-6 py-2.5"
+                            className="mt-6 inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-bold text-white transition hover:bg-slate-800 shadow-md shadow-slate-950/10"
                         >
                             Reset Catalog
-                        </Button>
+                        </Link>
                     </div>
                 )}
             </main>

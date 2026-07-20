@@ -11,10 +11,10 @@ export function FAQ() {
                 </h2>
             </div>
 
-            <div className="mt-12">
-                <Accordion.Root type="single" collapsible className="space-y-4">
+            <div className="mt-12 max-w-3xl mx-auto">
+                <Accordion className="space-y-4">
                     {faqs.map((item, index) => (
-                        <Accordion.Item key={item.question} value={`faq-${index}`} className="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-sm">
+                        <Accordion.Item key={item.question} id={`faq-${index}`} className="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white shadow-sm">
                             <Accordion.Trigger className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left text-lg font-semibold text-slate-950 transition hover:bg-slate-50 focus:outline-none">
                                 {item.question}
                             </Accordion.Trigger>
@@ -23,7 +23,7 @@ export function FAQ() {
                             </Accordion.Panel>
                         </Accordion.Item>
                     ))}
-                </Accordion.Root>
+                </Accordion>
             </div>
         </section>
     );

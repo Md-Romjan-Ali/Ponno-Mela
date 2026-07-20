@@ -1,4 +1,3 @@
-import { Button, Card } from "@heroui/react";
 import { HiArrowLeft, HiStar } from "react-icons/hi";
 import { getProductById } from "@/data/products";
 import { Navbar } from "@/components/landing/Navbar";
@@ -42,15 +41,12 @@ export default async function ProductDetailsPage({ params }: PageProps) {
                         <p className="mt-3 text-slate-600">
                             The product you are looking for does not exist or has been removed from our catalog.
                         </p>
-                        <Button
-                            as={Link}
+                        <Link
                             href="/products"
-                            variant="primary"
-                            size="md"
-                            className="mt-6 rounded-full px-6 py-2.5"
+                            className="mt-6 inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-bold text-white transition hover:bg-slate-800 shadow-md shadow-slate-950/10"
                         >
                             Back to Catalog
-                        </Button>
+                        </Link>
                     </div>
                 </main>
                 <Footer />
@@ -175,7 +171,7 @@ export default async function ProductDetailsPage({ params }: PageProps) {
                         </div>
 
                         {/* Interactive Area (Qty & Add to Cart) */}
-                        <InteractionSection productStatus={product.status} />
+                        <InteractionSection product={product} />
                     </div>
                 </div>
             </main>

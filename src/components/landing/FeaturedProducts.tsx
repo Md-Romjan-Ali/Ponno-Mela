@@ -63,10 +63,12 @@ export function FeaturedProducts() {
                                 <span>{product.rating.toFixed(1)}</span>
                             </div>
                             <div className="mt-6">
-                                <Button as={Link} href={`/products/${product.id}`} variant="ghost" size="md" className="w-full justify-between rounded-full border border-slate-200 px-5 py-3 text-slate-900 transition hover:border-amber-400 hover:bg-amber-50">
-                                    Details
-                                    <HiChevronRight className="h-5 w-5" />
-                                </Button>
+                                <Link href={`/products/${product.id}`} className="block w-full">
+                                    <span className="inline-flex w-full items-center justify-between rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:border-amber-400 hover:bg-amber-50">
+                                        Details
+                                        <HiChevronRight className="h-5 w-5" />
+                                    </span>
+                                </Link>
                             </div>
                         </div>
                     </Card>
@@ -74,9 +76,9 @@ export function FeaturedProducts() {
             </div>
 
             <div className="mt-12 text-center">
-                <Button as={Link} href="/products" variant="secondary" size="lg" className="rounded-full px-8 py-3">
+                <Link href="/products" className="inline-flex items-center justify-center rounded-full bg-slate-950 px-8 py-3 text-base font-semibold text-white transition hover:bg-slate-800 shadow-sm shadow-slate-950/10">
                     View All Items
-                </Button>
+                </Link>
             </div>
         </section>
     );
