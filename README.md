@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛍️ Ponno Mela
 
-## Getting Started
+A modern frontend-only e-commerce web application built with **Next.js**, **React**, **TypeScript**, and **Tailwind CSS**. The project focuses on providing a clean, responsive, and user-friendly shopping experience.
 
-First, run the development server:
+## 🌐 Live Demo
+
+https://ponno-mela.vercel.app/
+
+---
+
+## ✨ Features
+
+* Responsive design for desktop, tablet, and mobile
+* Browse products in a clean grid layout
+* Product details page
+* Shopping cart functionality
+* Cart data persistence using **localStorage**
+* Search products
+* Filter products
+* Sort products
+* Reusable and maintainable component structure
+* Modern and intuitive UI
+
+---
+
+## 🛠️ Tech Stack
+
+* Next.js
+* React.js
+* TypeScript
+* Tailwind CSS
+* localStorage
+
+---
+
+## 📂 Project Structure
+
+```text
+src/
+├── app/
+├── components/
+├── hooks/
+├── lib/
+├── types/
+└── ...
+```
+
+---
+
+## 🚀 Getting Started
+
+### Clone the repository
+
+```bash
+git clone <repository-url>
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000` in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎯 Project Goals
 
-## Learn More
+* Build a responsive e-commerce frontend
+* Practice component-based architecture
+* Implement client-side cart management
+* Persist cart data using localStorage
+* Improve UI/UX with modern design practices
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🤖 Development Note
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This is a **frontend-only** project. Shopping cart data is stored in the browser using **localStorage**, and no backend or database is used.
 
-## Deploy on Vercel
+**GitHub Copilot** was used as an AI coding assistant to improve development productivity. All generated code was reviewed, modified, and integrated during the development process.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📌 Future Improvements
+
+* User Authentication
+* Backend Integration
+* Database Support
+* Wishlist
+* Checkout & Payment
+* Order History
+* Product Reviews
+* Admin Dashboard
+
+---
+
+## 👨‍💻 Author
+
+**Md Romjan Ali**
+
+Frontend Developer
+
+Live Project: https://ponno-mela.vercel.app/
